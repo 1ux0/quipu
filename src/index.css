@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #111111;
+  --color-paper: #fdfdfb;
+  --color-line: #363c47;
+  --color-slate: #363c47;
+  --font-mono: "SF Mono", ui-monospace, "JetBrains Mono", Menlo, monospace;
+  --font-ui: Arial, "Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
+  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/* Strict brutalist: monochrome editor chrome, color only inside code blocks. */
+.milkdown {
+  --crepe-color-background: transparent;
+  --crepe-color-surface: #fdfdfb;
+  --crepe-color-surface-low: #f3f3ee;
+  --crepe-color-on-background: #111111;
+  --crepe-color-on-surface: #111111;
+  --crepe-color-on-surface-variant: #555555;
+  --crepe-color-outline: #363c47;
+  --crepe-color-primary: #111111;
+  --crepe-color-secondary: #f1f0ea;
+  --crepe-color-hover: #f1f0ea;
+  --crepe-color-selected: #e7e6df;
+  --crepe-color-inline-code: #111111;
+  --crepe-font-default: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --crepe-font-title: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --crepe-font-code: var(--font-mono);
+  --crepe-shadow-1: none;
+  --crepe-shadow-2: none;
+}
+
+.milkdown .ProseMirror {
+  padding: 1rem 2.5rem 1rem 3.5rem;
+}
+
+.milkdown .ProseMirror > :first-child,
+.milkdown .ProseMirror > .prosemirror-virtual-cursor:first-child + * {
+  margin-top: 1.5rem !important;
+}
+
+/* Use the native caret instead of Milkdown's animated virtual cursor. */
+.milkdown .ProseMirror {
+  caret-color: var(--color-ink) !important;
+}
+
+.milkdown .prosemirror-virtual-cursor {
+  display: none !important;
+}
+
+.milkdown .ProseMirror > * {
+  max-width: 42rem;
+}
+
+.milkdown .cm-editor {
+  font-size: 0.95rem;
+}
+
+.milkdown .cm-gutters {
+  display: none !important;
+}
+
+.milkdown code {
+  font-size: 0.95em;
+}
+
+.copy-button.quipu-copied {
+  position: relative;
+  color: transparent !important;
+}
+
+.copy-button.quipu-copied > * {
+  visibility: hidden !important;
+}
+
+.copy-button.quipu-copied::after {
+  content: "✓ Copied";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #16a34a;
+  font-weight: 500;
+}
